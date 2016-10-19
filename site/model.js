@@ -31,7 +31,7 @@ If the cell is already taken, this function does nothing.
 Model.prototype.applyClick = function(rowClicked, columnClicked) {
   console.log('clicked ' + rowClicked + columnClicked);
 
-  if (this.board[rowClicked][columnClicked] === "empty") {
+  if (this.board[rowClicked][columnClicked] === "empty" && !this.gameOver) {
     this.board[rowClicked][columnClicked] =
       this.isNoughtToPlay ? "nought" : "cross";
     this.isNoughtToPlay = !this.isNoughtToPlay;
@@ -76,7 +76,11 @@ Model.prototype.applyClick = function(rowClicked, columnClicked) {
       this.isGameOver = true;
       return;
     }
-  } else {
+  }
+  else if (this.isGameOver){
+    console.log("game already over");
+  }
+  else {
     console.log('cell already taken');
   }
 };
@@ -89,4 +93,3 @@ exports.createModel = function() {
   model.reset();
   return model;
 };
-
