@@ -1,6 +1,7 @@
 {
     "extends": "google",
     "installedESLint": true,
+    "ecmaVersion": 6,
     "env": {
       "browser": true
     },
@@ -9,4 +10,3 @@
       "one-var": 0
     }
 }
-
